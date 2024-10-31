@@ -46,6 +46,13 @@ plt.xlabel('Duration')
 plt.ylabel('Calories')
 plt.show()
 
+# Scatter plot of actual vs predicted values
+plt.scatter(list1, list2)
+plt.xlabel('Actual Calories')
+plt.ylabel('Predicted Calories')
+plt.title('Actual vs Predicted Calories')
+plt.plot([list1.min(), list1.max()], [list1.min(), list1.max()], color='red')  # Line for perfect predictions
+plt.show()
 
 
 
