@@ -1,10 +1,10 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.stats import pearsonr
+import pandas as pd #for read csv
+import matplotlib.pyplot as plt # for Histograms (plt.hist() Scatter plots (plt.scatter()) Box plots (data.boxplot()) Line plots (plt.plot()) Displaying plots (plt.show())
+from scipy.stats import pearsonr # is used to calculate the Pearson correlation
  
 
 # Load the dataset
-data = pd.read_csv(r"E:\csv files\calories.csv")
+data = pd.read_csv(r"C:\Users\PC\Desktop\archive\calories.csv")
 print(data.head())
 print(data.tail())
 
@@ -25,7 +25,7 @@ plt.title("Scatter Plot of Calories vs Duration")
 plt.show()
 
 # Box plot of 'Calories' grouped by 'Age'
-data.boxplot(by='Age', column=['Calories'], grid=False, fontsize=8)
+data.boxplot(by='Age', column=['Calories'], fontsize=8)
 plt.title("Box Plot of Calories by Age")
 plt.suptitle("")  # Remove the automatic 'Boxplot grouped by Age' title
 plt.xlabel("Age")
@@ -38,10 +38,11 @@ list2 = data["Calories"]
 corr, _ = pearsonr(list1, list2)
 print(f"Pearson correlation between Age and Calories: {corr}")
 
-# Assuming 'Calories' and 'Duration' have an ordering (like timestamps)
+# Line Plot of Duration vs Calories Assuming 'Calories' and 'Duration' have an ordering (like timestamps)
 plt.plot(data['Duration'], 
          data['Calories'], 
          color='purple', marker='o')
+plt.title("Line Plot of Duration vs Calories")
 plt.xlabel('Duration')
 plt.ylabel('Calories')
 plt.show()
@@ -53,7 +54,6 @@ plt.ylabel('Predicted Calories')
 plt.title('Actual vs Predicted Calories')
 plt.plot([list1.min(), list1.max()], [list1.min(), list1.max()], color='red')  # Line for perfect predictions
 plt.show()
-
 
 
 
